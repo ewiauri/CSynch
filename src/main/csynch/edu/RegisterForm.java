@@ -1,7 +1,13 @@
 
 package main.csynch.edu;
 
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
+import com.formdev.flatlaf.themes.FlatMacDarkLaf;
+import java.awt.Font;
 import javax.swing.JFrame;
+import javax.swing.UIManager;
 
 
 public class RegisterForm extends javax.swing.JFrame {
@@ -208,6 +214,10 @@ public class RegisterForm extends javax.swing.JFrame {
     }//GEN-LAST:event_rePassSignTFActionPerformed
 
     public static void main (String[]args){
+        FlatRobotoFont.install();
+        FlatLaf.registerCustomDefaultsSource("csynch.theme");
+        UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN, 13));
+        FlatLightLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {

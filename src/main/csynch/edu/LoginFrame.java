@@ -1,9 +1,16 @@
 package main.csynch.edu;
 
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
+import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import com.mysql.jdbc.Connection;
+import java.awt.Font;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.UIManager;
+import main.dashboard.DashboardFrame;
 
 
 public class LoginFrame extends javax.swing.JFrame {
@@ -13,12 +20,12 @@ public class LoginFrame extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
     
-    Connection con; 
+   // Connection con; 
     
     public void Connect(){
         try {
             Class.forName("com.mysql.jdbc(.Driver");
-                con = DiverManager.getConnection("jdbc:mysql://localhost/");
+               // con = DiverManager.getConnection("jdbc:mysql://localhost/");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(LoginFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -163,7 +170,13 @@ public class LoginFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordTFKeyTyped
 
     private void LoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBtnActionPerformed
-        // TODO add your handling code here:
+        //directs to dashboard frame
+        DashboardFrame DF = new DashboardFrame();
+        DF.setVisible(true);
+        DF.pack();
+        DF.setLocationRelativeTo(null);
+        DF.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
     }//GEN-LAST:event_LoginBtnActionPerformed
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
@@ -183,6 +196,10 @@ public class LoginFrame extends javax.swing.JFrame {
 
  public static void main (String[]args){
  
+     FlatRobotoFont.install();
+        FlatLaf.registerCustomDefaultsSource("csynch.theme");
+        UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN, 13));
+        FlatLightLaf.setup();
      java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
