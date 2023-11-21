@@ -28,7 +28,7 @@ public class MyDrawerBuilder extends SimpleDrawerBuilder {
     public SimpleMenuOption getSimpleMenuOption() {
         
         String menus[][] = {
-            {"~Main~"},
+            {"~Menu~"},
             {"Dashboard"},
             {"~Profile~"},
             {"Email", "Inbox", "Read", "Sent"},

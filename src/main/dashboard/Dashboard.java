@@ -1,8 +1,8 @@
 
 package main.dashboard;
 
-import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.fonts.inter.FlatInterFont;
 import java.awt.Font;
 import javax.swing.UIManager;
@@ -56,7 +56,7 @@ public class Dashboard extends javax.swing.JFrame {
         //for  dark  mode
         //FlatMacDarkLaf.setup();
         //for  light  mode
-        FlatIntelliJLaf.setup();
+        FlatLightLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Dashboard().setVisible(true);
