@@ -15,7 +15,6 @@ import raven.swing.AvatarIcon;
 
 
 public class MyDrawerBuilder extends SimpleDrawerBuilder {
-
     @Override
     public SimpleHeaderData getSimpleHeaderData() {
         return new SimpleHeaderData()
@@ -61,7 +60,7 @@ public class MyDrawerBuilder extends SimpleDrawerBuilder {
                 .setMenus(menus)
                 .setIcons(icons)
                 .setBaseIconPath("drawer/icons")
-                .setIconScale(0.35f)
+                .setIconScale(0.28f)
                 .addMenuEvent(new MenuEvent() {
                     @Override
                     public void selected(MenuAction action, int index, int subIndex) {
@@ -82,8 +81,8 @@ public class MyDrawerBuilder extends SimpleDrawerBuilder {
                         return true;
                     }
                     
-
-                });
+     
+               });
     }
 
     @Override

@@ -1,15 +1,19 @@
 
 package main.dashboard;
 
+
 import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.extras.FlatAnimatedLafChange;
 import com.formdev.flatlaf.fonts.inter.FlatInterFont;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
-import java.awt.Font;
-import javax.swing.UIManager;
+import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import main.drawer.MyDrawerBuilder;
 import raven.drawer.Drawer;
 import raven.popup.GlassPanePopup;
 import csynch.tabbed.WindowsTabbed;
+import java.awt.EventQueue;
+import java.awt.Font;
+import javax.swing.UIManager;
 
 public class Dashboard extends javax.swing.JFrame {
 
@@ -78,7 +82,7 @@ public class Dashboard extends javax.swing.JFrame {
         jButton1.setBounds(240, 30, 30, 27);
 
         bodyPanel.add(sidePanel);
-        sidePanel.setBounds(10, 0, 290, 500);
+        sidePanel.setBounds(0, 0, 290, 500);
 
         getContentPane().add(bodyPanel);
         bodyPanel.setBounds(0, 0, 800, 500);
