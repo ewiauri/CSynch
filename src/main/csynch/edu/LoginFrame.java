@@ -1,16 +1,18 @@
 package main.csynch.edu;
 
+import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.fonts.inter.FlatInterFont;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
-import com.formdev.flatlaf.themes.FlatMacDarkLaf;
-import com.mysql.jdbc.Connection;
+//import com.mysql.jdbc.Connection;
 import java.awt.Font;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
-import main.dashboard.DashboardFrame;
+import main.dashboard.Dashboard;
+import raven.toast.Notifications;
 
 
 public class LoginFrame extends javax.swing.JFrame {
@@ -18,6 +20,8 @@ public class LoginFrame extends javax.swing.JFrame {
     public LoginFrame() {
         initComponents();
         this.setLocationRelativeTo(null);
+        Notifications.getInstance().setJFrame(this);
+        
     }
     
    // Connection con; 
@@ -97,7 +101,7 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         });
         LoginPanel.add(usernameTF);
-        usernameTF.setBounds(120, 230, 160, 22);
+        usernameTF.setBounds(120, 230, 160, 26);
 
         Unametxt.setFont(new java.awt.Font("MS PGothic", 1, 14)); // NOI18N
         Unametxt.setText("Username ");
@@ -123,7 +127,7 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         });
         LoginPanel.add(SignUpBtn);
-        SignUpBtn.setBounds(210, 410, 100, 23);
+        SignUpBtn.setBounds(210, 410, 100, 27);
 
         LoginBtn.setText("Log In");
         LoginBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -132,7 +136,7 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         });
         LoginPanel.add(LoginBtn);
-        LoginBtn.setBounds(102, 340, 90, 23);
+        LoginBtn.setBounds(102, 340, 90, 27);
 
         Accounttxt.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
         Accounttxt.setText("Don't have an account?");
@@ -146,7 +150,7 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         });
         LoginPanel.add(cancelBtn);
-        cancelBtn.setBounds(200, 340, 90, 23);
+        cancelBtn.setBounds(200, 340, 90, 27);
 
         bg2.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\OneDrive\\Desktop\\ClassSynch\\Pallete\\Untitled (800 x 500 px).png")); // NOI18N
         LoginPanel.add(bg2);
@@ -162,16 +166,17 @@ public class LoginFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void usernameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameTFActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_usernameTFActionPerformed
 
     private void passwordTFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordTFKeyTyped
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_passwordTFKeyTyped
 
     private void LoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBtnActionPerformed
-        //directs to dashboard frame
-        DashboardFrame DF = new DashboardFrame();
+        Notifications.getInstance().show(Notifications.Type.SUCCESS,Notifications.Location.BOTTOM_RIGHT,"Welcome Back!");
+//directs to dashboard frame
+        Dashboard DF = new Dashboard();
         DF.setVisible(true);
         DF.pack();
         DF.setLocationRelativeTo(null);
@@ -198,8 +203,8 @@ public class LoginFrame extends javax.swing.JFrame {
  
      FlatRobotoFont.install();
         FlatLaf.registerCustomDefaultsSource("csynch.theme");
-        UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN, 13));
-        FlatLightLaf.setup();
+        UIManager.put("defaultFont", new Font(FlatInterFont.FAMILY,Font.BOLD, 13));
+        FlatIntelliJLaf.setup();
      java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
