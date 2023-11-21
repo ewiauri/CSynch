@@ -27,7 +27,16 @@ public class Dashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dateChange = new com.raven.datechooser.DateChooser();
         bodyPanel = new javax.swing.JPanel();
+        sidePanel = new javax.swing.JPanel();
+        txtDate = new javax.swing.JTextField();
+        dateBtn = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+
+        dateChange.setForeground(new java.awt.Color(159, 106, 185));
+        dateChange.setDateFormat("dd-MMMM-yyyy");
+        dateChange.setTextRefernce(txtDate);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -37,12 +46,59 @@ public class Dashboard extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         bodyPanel.setPreferredSize(new java.awt.Dimension(800, 500));
-        bodyPanel.setLayout(new java.awt.BorderLayout());
+        bodyPanel.setLayout(null);
+
+        sidePanel.setLayout(null);
+
+        txtDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDateActionPerformed(evt);
+            }
+        });
+        sidePanel.add(txtDate);
+        txtDate.setBounds(20, 30, 190, 26);
+
+        dateBtn.setText("↩");
+        dateBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        dateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateBtnActionPerformed(evt);
+            }
+        });
+        sidePanel.add(dateBtn);
+        dateBtn.setBounds(210, 30, 30, 27);
+
+        jButton1.setText("↻");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        sidePanel.add(jButton1);
+        jButton1.setBounds(240, 30, 30, 27);
+
+        bodyPanel.add(sidePanel);
+        sidePanel.setBounds(10, 0, 290, 500);
+
         getContentPane().add(bodyPanel);
         bodyPanel.setBounds(0, 0, 800, 500);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDateActionPerformed
+
+    private void dateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateBtnActionPerformed
+
+        dateChange.showPopup();
+    }//GEN-LAST:event_dateBtnActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       dateChange.toDay();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
 
@@ -63,5 +119,10 @@ public class Dashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bodyPanel;
+    private javax.swing.JButton dateBtn;
+    private com.raven.datechooser.DateChooser dateChange;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel sidePanel;
+    private javax.swing.JTextField txtDate;
     // End of variables declaration//GEN-END:variables
 }

@@ -2,7 +2,6 @@ package main.csynch.edu;
 
 import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.FlatLaf;
-import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.fonts.inter.FlatInterFont;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 //import com.mysql.jdbc.Connection;
@@ -94,7 +93,6 @@ public class LoginFrame extends javax.swing.JFrame {
         welcomeBacktxt.setBounds(40, 100, 310, 60);
 
         usernameTF.setForeground(new java.awt.Color(204, 204, 204));
-        usernameTF.setText("@ ");
         usernameTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameTFActionPerformed(evt);
@@ -208,6 +206,7 @@ public class LoginFrame extends javax.swing.JFrame {
      java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
+                new splashscreen.ScreenSplash(null, true).setVisible(true);
                 new LoginFrame().setVisible(true);
             }
         });
