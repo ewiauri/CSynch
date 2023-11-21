@@ -2,8 +2,8 @@
 package main.dashboard;
 
 import com.formdev.flatlaf.FlatLaf;
-import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.fonts.inter.FlatInterFont;
+import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import java.awt.Font;
 import javax.swing.UIManager;
 import main.drawer.MyDrawerBuilder;
@@ -16,13 +16,9 @@ public class Dashboard extends javax.swing.JFrame {
 
     public Dashboard() {
         GlassPanePopup.install(this);
-        MyDrawerBuilder MyDrawerBuilder = new MyDrawerBuilder();
-        Drawer.getInstance().setDrawerBuilder(MyDrawerBuilder);
-        this.setLocationRelativeTo(null);
-        this.setVisible(true);
-        this.pack();
+        MyDrawerBuilder myDrawerBuilder = new MyDrawerBuilder();
+        Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
-        
         WindowsTabbed.getInstance().install(this, bodyPanel);
     }
 
@@ -40,9 +36,10 @@ public class Dashboard extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
+        bodyPanel.setPreferredSize(new java.awt.Dimension(800, 500));
         bodyPanel.setLayout(new java.awt.BorderLayout());
         getContentPane().add(bodyPanel);
-        bodyPanel.setBounds(0, 0, 190, 200);
+        bodyPanel.setBounds(0, 0, 800, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -50,13 +47,13 @@ public class Dashboard extends javax.swing.JFrame {
     public static void main(String args[]) {
 
         FlatInterFont.installSemiBold();
+        
         FlatLaf.setPreferredSemiboldFontFamily( FlatInterFont.FAMILY_SEMIBOLD );
             FlatLaf.registerCustomDefaultsSource("csynch.theme");
+            
         UIManager.put("defaultFont", new Font( FlatInterFont.FAMILY_SEMIBOLD, Font.PLAIN, 12));
-        //for  dark  mode
-        //FlatMacDarkLaf.setup();
-        //for  light  mode
-        FlatLightLaf.setup();
+       
+        FlatMacDarkLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Dashboard().setVisible(true);
