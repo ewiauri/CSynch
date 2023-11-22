@@ -4,10 +4,12 @@
   <NonVisualComponents>
     <Component class="com.raven.datechooser.DateChooser" name="dateChange">
       <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="b9" green="6a" red="9f" type="rgb"/>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="cc" red="cc" type="rgb"/>
         </Property>
-        <Property name="dateFormat" type="java.lang.String" value="dd-MMMM-yyyy"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="fd" green="a1" red="a1" type="rgb"/>
+        </Property>
         <Property name="textRefernce" type="javax.swing.JTextField" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="txtDate"/>
         </Property>

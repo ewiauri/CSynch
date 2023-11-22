@@ -52,8 +52,8 @@ public class Dashboard extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableData = new javax.swing.JTable();
 
-        dateChange.setForeground(new java.awt.Color(159, 106, 185));
-        dateChange.setDateFormat("dd-MMMM-yyyy");
+        dateChange.setBackground(new java.awt.Color(204, 204, 255));
+        dateChange.setForeground(new java.awt.Color(161, 161, 253));
         dateChange.setTextRefernce(txtDate);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
