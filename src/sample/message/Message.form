@@ -31,7 +31,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="261" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="77" max="32767" attributes="0"/>
                   </Group>
                   <Component id="txt" pref="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
@@ -67,9 +67,9 @@
           <Font name="sansserif" size="14" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="50" green="50" red="50" type="rgb"/>
+          <Color blue="da" green="b5" red="b5" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Your Message Title Dialog Custom"/>
+        <Property name="text" type="java.lang.String" value="Welcome to Class Synch!"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextPane" name="txt">
@@ -78,19 +78,22 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="85" green="85" red="85" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="This is part of a series of short tutorials about specific elements, components, or interactions. We&#x2019;ll cover the UX, the UI, and the construction inside of Sketch. Plus, there&#x2019;s a freebie for you at the end!"/>
+        <Property name="text" type="java.lang.String" value="Congratulations on creating your account. We&apos;re thrilled to have you on board. Explore our website and discover a world of Class Synch!"/>
       </Properties>
     </Component>
     <Component class="sample.message.Button" name="cmdOK">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="3f" green="aa" red="30" type="rgb"/>
+          <Color blue="ff" green="cc" red="cc" type="rgb"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="OK"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdOKActionPerformed"/>
+      </Events>
     </Component>
     <Component class="sample.message.Button" name="cmdCancel">
       <Properties>

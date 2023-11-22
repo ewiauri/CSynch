@@ -6,7 +6,10 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.event.ActionListener;
 import java.awt.geom.RoundRectangle2D;
+import javax.swing.JFrame;
+import main.csynch.edu.LoginFrame;
 import main.glasspanepopup.GlassPanePopup;
+import raven.toast.Notifications;
 
 /**
  *
@@ -45,16 +48,21 @@ public class Message extends javax.swing.JPanel {
         setBorder(javax.swing.BorderFactory.createEmptyBorder(25, 25, 25, 25));
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(80, 80, 80));
-        jLabel1.setText("Your Message Title Dialog Custom");
+        jLabel1.setForeground(new java.awt.Color(181, 181, 218));
+        jLabel1.setText("Welcome to Class Synch!");
 
         txt.setEditable(false);
         txt.setForeground(new java.awt.Color(133, 133, 133));
-        txt.setText("This is part of a series of short tutorials about specific elements, components, or interactions. We’ll cover the UX, the UI, and the construction inside of Sketch. Plus, there’s a freebie for you at the end!");
+        txt.setText("Congratulations on creating your account. We're thrilled to have you on board. Explore our website and discover a world of Class Synch!");
 
-        cmdOK.setBackground(new java.awt.Color(48, 170, 63));
+        cmdOK.setBackground(new java.awt.Color(204, 204, 255));
         cmdOK.setForeground(new java.awt.Color(255, 255, 255));
         cmdOK.setText("OK");
+        cmdOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdOKActionPerformed(evt);
+            }
+        });
 
         cmdCancel.setBackground(new java.awt.Color(233, 233, 233));
         cmdCancel.setText("Cancel");
@@ -73,7 +81,7 @@ public class Message extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(0, 261, Short.MAX_VALUE))
+                        .addGap(0, 77, Short.MAX_VALUE))
                     .addComponent(txt, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -98,6 +106,16 @@ public class Message extends javax.swing.JPanel {
     private void cmdCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCancelActionPerformed
         GlassPanePopup.closePopupLast();
     }//GEN-LAST:event_cmdCancelActionPerformed
+
+    private void cmdOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdOKActionPerformed
+        
+        Notifications.getInstance().show(Notifications.Type.SUCCESS, Notifications.Location.BOTTOM_RIGHT,"Success You can now sign in!");
+        LoginFrame rgf = new LoginFrame();
+        rgf.setVisible(true);
+//        rgf.pack();
+//        rgf.setLocationRelativeTo(null);
+//        rgf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }//GEN-LAST:event_cmdOKActionPerformed
 
     public void eventOK(ActionListener event) {
         cmdOK.addActionListener(event);

@@ -1,4 +1,4 @@
-package com.raven.datechooser;
+package csynch.datechooser;
 
 public class SelectedDate {
 

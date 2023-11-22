@@ -1,4 +1,4 @@
-package com.raven.datechooser;
+package csynch.datechooser;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -227,13 +227,13 @@ public final class DateChooser extends javax.swing.JPanel {
             }
         };
         header = new javax.swing.JPanel();
-        cmdForward = new com.raven.datechooser.Button();
+        cmdForward = new csynch.datechooser.Button();
         MY = new javax.swing.JLayeredPane();
-        cmdMonth = new com.raven.datechooser.Button();
+        cmdMonth = new csynch.datechooser.Button();
         lb = new javax.swing.JLabel();
-        cmdYear = new com.raven.datechooser.Button();
-        cmdPrevious = new com.raven.datechooser.Button();
-        slide = new com.raven.datechooser.Slider();
+        cmdYear = new csynch.datechooser.Button();
+        cmdPrevious = new csynch.datechooser.Button();
+        slide = new csynch.datechooser.Slider();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -482,14 +482,14 @@ public final class DateChooser extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLayeredPane MY;
-    private com.raven.datechooser.Button cmdForward;
-    private com.raven.datechooser.Button cmdMonth;
-    private com.raven.datechooser.Button cmdPrevious;
-    private com.raven.datechooser.Button cmdYear;
+    private csynch.datechooser.Button cmdForward;
+    private csynch.datechooser.Button cmdMonth;
+    private csynch.datechooser.Button cmdPrevious;
+    private csynch.datechooser.Button cmdYear;
     private javax.swing.JPanel header;
     private javax.swing.JLabel lb;
     private javax.swing.JPopupMenu popup;
-    private com.raven.datechooser.Slider slide;
+    private csynch.datechooser.Slider slide;
     // End of variables declaration//GEN-END:variables
 
     public SelectedDate getSelectedDate() {

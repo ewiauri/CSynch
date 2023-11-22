@@ -6,10 +6,13 @@ import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
+import raven.glasspanepopup.GlassPanePopup;
 import raven.toast.Notifications;
-import splashscreen.ss;
+import sample.message.Message;
 
 
 public class RegisterForm extends javax.swing.JFrame {
@@ -19,6 +22,7 @@ public class RegisterForm extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         Notifications.getInstance().setJFrame(this);
+        GlassPanePopup.install(this);
     }
 
 
@@ -26,7 +30,6 @@ public class RegisterForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
         sexGroupBtn = new javax.swing.ButtonGroup();
         MainRegisterPanel = new javax.swing.JPanel();
         RightPanelReg = new javax.swing.JPanel();
@@ -54,8 +57,6 @@ public class RegisterForm extends javax.swing.JFrame {
         maleBtn = new javax.swing.JRadioButton();
         femBtn = new javax.swing.JRadioButton();
         BGRegisterForm = new javax.swing.JLabel();
-
-        jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -132,7 +133,7 @@ public class RegisterForm extends javax.swing.JFrame {
             }
         });
         LeftPanelReg.add(CreateBtn);
-        CreateBtn.setBounds(200, 320, 130, 27);
+        CreateBtn.setBounds(200, 320, 130, 23);
 
         CancelRegBtn.setText("Cancel");
         CancelRegBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -141,7 +142,7 @@ public class RegisterForm extends javax.swing.JFrame {
             }
         });
         LeftPanelReg.add(CancelRegBtn);
-        CancelRegBtn.setBounds(80, 320, 100, 27);
+        CancelRegBtn.setBounds(80, 320, 100, 23);
 
         haveacconttxt.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         haveacconttxt.setForeground(new java.awt.Color(51, 51, 51));
@@ -160,7 +161,7 @@ public class RegisterForm extends javax.swing.JFrame {
         LeftPanelReg.add(ReSignInBtn);
         ReSignInBtn.setBounds(230, 410, 110, 30);
         LeftPanelReg.add(StudNoTF);
-        StudNoTF.setBounds(160, 210, 150, 26);
+        StudNoTF.setBounds(160, 210, 150, 22);
 
         UNameTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,13 +169,13 @@ public class RegisterForm extends javax.swing.JFrame {
             }
         });
         LeftPanelReg.add(UNameTF);
-        UNameTF.setBounds(140, 120, 150, 26);
+        UNameTF.setBounds(140, 120, 150, 22);
         LeftPanelReg.add(LNameTF);
-        LNameTF.setBounds(140, 90, 150, 26);
+        LNameTF.setBounds(140, 90, 150, 22);
         LeftPanelReg.add(FnameTF);
-        FnameTF.setBounds(140, 60, 150, 26);
+        FnameTF.setBounds(140, 60, 150, 22);
         LeftPanelReg.add(PassSignTF);
-        PassSignTF.setBounds(160, 240, 150, 26);
+        PassSignTF.setBounds(160, 240, 150, 22);
 
         rePassSignTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,7 +183,7 @@ public class RegisterForm extends javax.swing.JFrame {
             }
         });
         LeftPanelReg.add(rePassSignTF);
-        rePassSignTF.setBounds(160, 270, 150, 26);
+        rePassSignTF.setBounds(160, 270, 150, 22);
 
         jLabel3.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
@@ -235,7 +236,7 @@ public class RegisterForm extends javax.swing.JFrame {
 
     private void ReSignInBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReSignInBtnActionPerformed
       
-        Notifications.getInstance().show(Notifications.Type.ERROR, Notifications.Location.BOTTOM_RIGHT,"Log In!");
+        Notifications.getInstance().show(Notifications.Type.SUCCESS, Notifications.Location.BOTTOM_RIGHT,"Log In!");
         LoginFrame rgf = new LoginFrame();
         rgf.setVisible(true);
         rgf.pack();
@@ -254,7 +255,18 @@ public class RegisterForm extends javax.swing.JFrame {
     }//GEN-LAST:event_rePassSignTFActionPerformed
 
     private void CreateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateBtnActionPerformed
-        Notifications.getInstance().show(Notifications.Type.SUCCESS, Notifications.Location.BOTTOM_RIGHT,"Account Created! Please Log in");
+
+        Message obj = new Message();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                System.out.println("Click OK");
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
+
+        Notifications.getInstance().show(Notifications.Type.INFO, Notifications.Location.BOTTOM_RIGHT,"Account Created!");
     }//GEN-LAST:event_CreateBtnActionPerformed
 
     public static void main (String[]args){
@@ -294,7 +306,6 @@ public class RegisterForm extends javax.swing.JFrame {
     private javax.swing.JRadioButton femBtn;
     private javax.swing.JLabel haveacconttxt;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JRadioButton maleBtn;
     private javax.swing.JPasswordField rePassSignTF;

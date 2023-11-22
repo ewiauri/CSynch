@@ -30,11 +30,16 @@ public class Dashboard extends javax.swing.JFrame {
     private void dataTester(){
     
         DefaultTableModel model = (DefaultTableModel)tableData.getModel();
-            model.addRow(new Object [] {    1, "Introduction to Java", "Aug 12", 4.9, "Elementary"});
-            model.addRow(new Object [] {    2, "Styling with CSS", "Seo 06", 5.0, "Intermediate"});
-            model.addRow(new Object [] {    3, "Basics To Programming", "Jan 02", 4.3, "Elementary"});
-            model.addRow(new Object [] {    4, "HTML Basics", "Feb 12", 5.0, "Intermediate"}); 
-            model.addRow(new Object [] {    5, "Learn to Program in Python", "Aug 12", 5.0, "Intermediate"});
+            model.addRow(new Object [] {    1, "Introduction to Java", "Jan 12", 4.9, "Elementary"});
+            model.addRow(new Object [] {    2, "Styling with CSS", "Feb 06", 5.0, "Intermediate"});
+            model.addRow(new Object [] {    3, "Basics To Programming", "Mar 02", 4.3, "Elementary"});
+            model.addRow(new Object [] {    4, "HTML Basics", "Apr 19", 5.0, "Intermediate"}); 
+            model.addRow(new Object [] {    5, "Learn to Program in Python", "May 12", 5.0, "Advanced"});
+            model.addRow(new Object [] {    6, "Learn to Program in Java", "Jun 04", 4.9, "Advanced"});
+            model.addRow(new Object [] {    7, "Styling with JavaScript", "Jul 09", 4.7, "Intermediate"});
+            model.addRow(new Object [] {    8, "Learn to Program in Swift", "Aug 05", 4.8, "Intermediate"});
+            model.addRow(new Object [] {    9, "C Basics", "Sep 07", 5.0, "Elementary"});
+            model.addRow(new Object [] {    10, "C++ Bacis", "Aug 12",4.0, "Advanced"});
             
 }
     
@@ -43,7 +48,7 @@ public class Dashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        dateChange = new com.raven.datechooser.DateChooser();
+        dateChange = new csynch.datechooser.DateChooser();
         bodyPanel = new javax.swing.JPanel();
         sidePanel = new javax.swing.JPanel();
         txtDate = new javax.swing.JTextField();
@@ -96,7 +101,7 @@ public class Dashboard extends javax.swing.JFrame {
         nowBtn.setBounds(240, 30, 30, 27);
 
         bodyPanel.add(sidePanel);
-        sidePanel.setBounds(490, 0, 290, 500);
+        sidePanel.setBounds(490, 0, 290, 480);
 
         tableData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -115,10 +120,22 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
         tableData.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tableData.setGridColor(new java.awt.Color(51, 51, 51));
+        tableData.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        tableData.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tableData);
+        if (tableData.getColumnModel().getColumnCount() > 0) {
+            tableData.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tableData.getColumnModel().getColumn(1).setResizable(false);
+            tableData.getColumnModel().getColumn(1).setPreferredWidth(150);
+            tableData.getColumnModel().getColumn(2).setResizable(false);
+            tableData.getColumnModel().getColumn(2).setPreferredWidth(50);
+            tableData.getColumnModel().getColumn(3).setPreferredWidth(50);
+            tableData.getColumnModel().getColumn(4).setPreferredWidth(75);
+        }
 
         bodyPanel.add(jScrollPane1);
-        jScrollPane1.setBounds(70, 250, 410, 150);
+        jScrollPane1.setBounds(20, 150, 460, 280);
 
         getContentPane().add(bodyPanel);
         bodyPanel.setBounds(0, 0, 800, 490);
@@ -155,7 +172,7 @@ public class Dashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bodyPanel;
     private javax.swing.JButton dateBtn;
-    private com.raven.datechooser.DateChooser dateChange;
+    private csynch.datechooser.DateChooser dateChange;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton nowBtn;
     private javax.swing.JPanel sidePanel;

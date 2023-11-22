@@ -1,4 +1,4 @@
-package com.raven.datechooser;
+package csynch.datechooser;
 
 import java.awt.Component;
 
