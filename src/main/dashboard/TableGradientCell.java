@@ -1,6 +1,5 @@
-package csynch.table;
+package main.dashboard;
 
-import main.dashboard.*;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.GradientPaint;
@@ -18,7 +17,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 public class TableGradientCell extends DefaultTableCellRenderer {
 
     public TableGradientCell() {
-        this(Color.decode("#FFFFFF"), Color.decode("#9999FF"));
+        this(Color.decode("#009FFF"), Color.decode("#ec2F4B"));
     }
 
     public TableGradientCell(Color color1, Color color2) {

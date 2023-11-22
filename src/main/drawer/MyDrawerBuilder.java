@@ -28,31 +28,20 @@ public class MyDrawerBuilder extends SimpleDrawerBuilder {
         
         String menus[][] = {
             {"~Menu~"},
+            
             {"Dashboard"},
+            
             {"~Profile~"},
-            {"Email", "Inbox", "Read", "Sent"},
-            {"Chat"},
+            
+            {"Courses"},
             {"Calendar"},
-            {"~COMPONENT~"},
-            {"Advanced UI", "Cropper", "Owl Carousel", "Sweet Alert"},
-            {"Forms", "Basic Elements", "Advanced Elements", "SEditors", "Wizard"},
-            {"~OTHER~"},
-            {"Charts", "Apex", "Flot", "Sparkline"},
-            {"Icons", "Feather Icons", "Flag Icons", "Mdi Icons"},
-            {"Special Pages", "Blank page", "Faq", "Invoice", "Profile", "Pricing", "Timeline"},
             {"Logout"},
         };
 
         String icons[] = {
             "dashboard.svg",
-            "email.svg",
             "chat.svg",
             "calendar.svg",
-            "ui.svg",
-            "forms.svg",
-            "chart.svg",
-            "icon.svg",
-            "page.svg",
             "logout.svg",
         };
 
