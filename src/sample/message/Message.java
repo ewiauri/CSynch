@@ -66,6 +66,7 @@ public class Message extends javax.swing.JPanel {
 
         cmdCancel.setBackground(new java.awt.Color(233, 233, 233));
         cmdCancel.setText("Cancel");
+        cmdCancel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         cmdCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdCancelActionPerformed(evt);
