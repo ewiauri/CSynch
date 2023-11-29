@@ -1,17 +1,23 @@
-
 package main.dashboard;
-
 
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.fonts.inter.FlatInterFont;
 import com.formdev.flatlaf.themes.FlatMacLightLaf;
+import csynch.notification.notifFrame;
+import csynch.notification.notifPanel;
 import main.drawer.MyDrawerBuilder;
 import raven.drawer.Drawer;
 import raven.popup.GlassPanePopup;
 import csynch.tabbed.WindowsTabbed;
+import java.awt.Component;
 import java.awt.Font;
+import java.awt.Point;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
+import main.glasspanepopup.DefaultLayoutCallBack;
+import net.miginfocom.layout.ComponentWrapper;
+import net.miginfocom.layout.LayoutCallback;
+import raven.popup.DefaultOption;
 
 public class Dashboard extends javax.swing.JFrame {
 
@@ -24,7 +30,8 @@ public class Dashboard extends javax.swing.JFrame {
         WindowsTabbed.getInstance().install(this, bodyPanel);
         tableData.setDefaultRenderer(Object.class, new csynch.table.TableGradientCell());
         dataTester();
-//        Table();
+        GlassPanePopup.install(this);
+  
     }
     
     private void dataTester(){
@@ -39,7 +46,7 @@ public class Dashboard extends javax.swing.JFrame {
             model.addRow(new Object [] {    7, "Styling with JavaScript", "Jul 09", 4.7, "Intermediate"});
             model.addRow(new Object [] {    8, "Learn to Program in Swift", "Aug 05", 4.8, "Intermediate"});
             model.addRow(new Object [] {    9, "C Basics", "Sep 07", 5.0, "Elementary"});
-            model.addRow(new Object [] {    10, "C++ Bacis", "Aug 12",4.0, "Advanced"});
+            model.addRow(new Object [] {    10, "C++ Bacis", "Oct 12",4.0, "Advanced"});
             
 }
     
@@ -50,16 +57,17 @@ public class Dashboard extends javax.swing.JFrame {
 
         dateChange = new csynch.datechooser.DateChooser();
         bodyPanel = new javax.swing.JPanel();
-        sidePanel = new javax.swing.JPanel();
-        txtDate = new javax.swing.JTextField();
-        dateBtn = new javax.swing.JButton();
-        nowBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableData = new javax.swing.JTable();
+        csynchTxt = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        coursesTxt = new javax.swing.JLabel();
+        calendarTxt = new javax.swing.JLabel();
+        calendar2 = new raven.calendar.Calendar();
+        cmd = new sample.message.Button();
 
         dateChange.setBackground(new java.awt.Color(204, 204, 255));
         dateChange.setForeground(new java.awt.Color(161, 161, 253));
-        dateChange.setTextRefernce(txtDate);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -68,40 +76,9 @@ public class Dashboard extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
+        bodyPanel.setBackground(new java.awt.Color(255, 255, 255));
         bodyPanel.setPreferredSize(new java.awt.Dimension(800, 500));
         bodyPanel.setLayout(null);
-
-        sidePanel.setLayout(null);
-
-        txtDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDateActionPerformed(evt);
-            }
-        });
-        sidePanel.add(txtDate);
-        txtDate.setBounds(20, 30, 190, 26);
-
-        dateBtn.setText("↩");
-        dateBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        dateBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dateBtnActionPerformed(evt);
-            }
-        });
-        sidePanel.add(dateBtn);
-        dateBtn.setBounds(210, 30, 30, 27);
-
-        nowBtn.setText("↻");
-        nowBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nowBtnActionPerformed(evt);
-            }
-        });
-        sidePanel.add(nowBtn);
-        nowBtn.setBounds(240, 30, 30, 27);
-
-        bodyPanel.add(sidePanel);
-        sidePanel.setBounds(490, 0, 290, 480);
 
         tableData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -135,7 +112,37 @@ public class Dashboard extends javax.swing.JFrame {
         }
 
         bodyPanel.add(jScrollPane1);
-        jScrollPane1.setBounds(20, 150, 460, 280);
+        jScrollPane1.setBounds(20, 220, 460, 240);
+
+        csynchTxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        csynchTxt.setText("Class Synch");
+        bodyPanel.add(csynchTxt);
+        csynchTxt.setBounds(70, 0, 100, 60);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/csynch/notification/img/csync.png"))); // NOI18N
+        bodyPanel.add(jLabel2);
+        jLabel2.setBounds(-10, 0, 80, 70);
+
+        coursesTxt.setText("My Courses");
+        bodyPanel.add(coursesTxt);
+        coursesTxt.setBounds(20, 190, 80, 20);
+
+        calendarTxt.setText("Calendar");
+        bodyPanel.add(calendarTxt);
+        calendarTxt.setBounds(530, 130, 70, 20);
+        bodyPanel.add(calendar2);
+        calendar2.setBounds(500, 160, 280, 300);
+
+        cmd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/csynch/notification/img/notifs.png"))); // NOI18N
+        cmd.setHideActionText(true);
+        cmd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdActionPerformed(evt);
+            }
+        });
+        bodyPanel.add(cmd);
+        cmd.setBounds(440, 10, 50, 50);
+        cmd.getAccessibleContext().setAccessibleParent(cmd);
 
         getContentPane().add(bodyPanel);
         bodyPanel.setBounds(0, 0, 800, 490);
@@ -144,23 +151,39 @@ public class Dashboard extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDateActionPerformed
-        dateChange.showPopup();
-    }//GEN-LAST:event_txtDateActionPerformed
+    private void cmdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdActionPerformed
 
-    private void dateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateBtnActionPerformed
+       main.glasspanepopup.GlassPanePopup.showPopup(new notifPanel(), new main.glasspanepopup.DefaultOption(){
+       
+           @Override
+           public float opacity(){
+               return 0;
+           } 
+          
+           public LayoutCallback getLayoutCallBack(Component parent){
+               return new DefaultLayoutCallBack(parent){
+                   public void correctBounds(Component cw){
+                        if(parent.isVisible()){
+                            Point pl = parent.getLocationOnScreen();
+                            Point bl = cmd.getLocationOnScreen();
+                            int x=bl.x-pl.x;
+                            int y=bl.y-pl.x;
+                            y+=(1f-getAnimate())*-10f;
+                            cw.setBounds(x-cw.getWidth()+cmd.getWidth(), y+cmd.getHeight(), cw.getWidth(), cw.getHeight());
+                        }else{
+                            super.correctBounds((ComponentWrapper) cw);
+                        }
+                   }
 
-        dateChange.showPopup();
-    }//GEN-LAST:event_dateBtnActionPerformed
-
-    private void nowBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nowBtnActionPerformed
-       dateChange.toDay();
-    }//GEN-LAST:event_nowBtnActionPerformed
+               };
+           }
+       });
+    }//GEN-LAST:event_cmdActionPerformed
 
     public static void main(String args[]) {
         FlatInterFont.install();
-        FlatLaf.registerCustomDefaultsSource("csynch.table");
-        UIManager.put("defaultFont", new Font(FlatInterFont.FAMILY,Font.BOLD, 10));
+        FlatLaf.registerCustomDefaultsSource("csynch.test");
+        UIManager.put("defaultFont", new Font( FlatInterFont.FAMILY_SEMIBOLD, Font.PLAIN, 12 ));
         FlatMacLightLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -171,12 +194,14 @@ public class Dashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bodyPanel;
-    private javax.swing.JButton dateBtn;
+    private raven.calendar.Calendar calendar2;
+    private javax.swing.JLabel calendarTxt;
+    private sample.message.Button cmd;
+    private javax.swing.JLabel coursesTxt;
+    private javax.swing.JLabel csynchTxt;
     private csynch.datechooser.DateChooser dateChange;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton nowBtn;
-    private javax.swing.JPanel sidePanel;
     private javax.swing.JTable tableData;
-    private javax.swing.JTextField txtDate;
     // End of variables declaration//GEN-END:variables
 }

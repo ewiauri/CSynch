@@ -14,13 +14,13 @@ import main.glasspanepopup.GlassPanePopup;
 import net.miginfocom.layout.ComponentWrapper;
 import net.miginfocom.layout.LayoutCallback;
 
-
 public class notifFrame extends javax.swing.JFrame {
 
 
     public notifFrame() {
         initComponents();
         GlassPanePopup.install(this);
+        
         
     }
 
@@ -56,6 +56,8 @@ public class notifFrame extends javax.swing.JFrame {
                 .addContainerGap(441, Short.MAX_VALUE))
         );
 
+        cmdNotif.getAccessibleContext().setAccessibleParent(cmdNotif);
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -89,10 +91,10 @@ public class notifFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdNotifActionPerformed
 
     public static void main(String args[]) {
-//        FlatInterFont.install();
-//        FlatLaf.registerCustomDefaultsSource("csynch.table");
-//        UIManager.put("defaultFont", new Font(FlatInterFont.FAMILY,Font.BOLD, 12));
-//        FlatMacDarkLaf.setup();
+        FlatInterFont.install();
+        FlatLaf.registerCustomDefaultsSource("csynch.table");
+        UIManager.put("defaultFont", new Font(FlatInterFont.FAMILY,Font.BOLD, 12));
+        FlatMacDarkLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new notifFrame().setVisible(true);

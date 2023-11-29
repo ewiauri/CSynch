@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 public class TableGradientCell extends DefaultTableCellRenderer {
 
     public TableGradientCell() {
-        this(Color.decode("#FFFFFF"), Color.decode("#9999FF"));
+        this(Color.decode("#FFFFFF"), Color.decode("#C8A2C8"));
     }
 
     public TableGradientCell(Color color1, Color color2) {
@@ -51,7 +51,7 @@ public class TableGradientCell extends DefaultTableCellRenderer {
             g2.setPaint(new GradientPaint(x, 0, color1, width, 0, color2));
             g2.fill(new Rectangle2D.Double(0, 0, getWidth(), getHeight()));
         } else if (row % 2 == 0) {
-            g2.setPaint(new GradientPaint(x, 0, Color.decode("#FFFFFF"), width, 0, Color.decode("#9999FF")));
+            g2.setPaint(new GradientPaint(x, 0, Color.decode("#FFFFFF"), width, 0, Color.decode("#C8A2C8")));
             g2.fill(new Rectangle2D.Double(0, 0, getWidth(), getHeight()));
         }
         g2.dispose();

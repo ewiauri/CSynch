@@ -1,9 +1,17 @@
 
-package csynch.notification;
+package main.dashboard;
 
-public class itemPanel extends javax.swing.JPanel {
+import csynch.notification.*;
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.fonts.inter.FlatInterFont;
+import com.formdev.flatlaf.themes.FlatMacDarkLaf;
+import com.formdev.flatlaf.themes.FlatMacLightLaf;
+import java.awt.Font;
+import javax.swing.UIManager;
 
-    public itemPanel( String name, String des, String time) {
+public class item extends javax.swing.JPanel {
+
+    public item( String name, String des, String time) {
         initComponents();
         IbName.setText(name);
         IbDescription.setText(des);

@@ -1,11 +1,16 @@
-package csynch.notification;
+package main.dashboard;
 
 //import com.formdev.flatlaf.FlatLaf;
 //import com.formdev.flatlaf.fonts.inter.FlatInterFont;
 //import java.awt.Font;
+import csynch.notification.*;
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.fonts.inter.FlatInterFont;
+import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import combo_suggestion.ModernScrollBarUI;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -14,13 +19,14 @@ import java.awt.geom.Area;
 import java.awt.geom.Path2D;
 import java.awt.geom.RoundRectangle2D;
 import javax.swing.JScrollBar;
+import javax.swing.UIManager;
 import net.miginfocom.swing.MigLayout;
 //import javax.swing.UIManager;
 
-public class notifPanel extends javax.swing.JPanel {
+public class notif extends javax.swing.JPanel {
 
 
-    public notifPanel() {
+    public notif() {
         initComponents();
         setOpaque(false);
         scroll.getViewport().setOpaque(false);
@@ -36,9 +42,9 @@ public class notifPanel extends javax.swing.JPanel {
     
     public void loadNoti(){
         
-        panel.add(new itemPanel("[System]", "Welcome to Class Synch!", "Just now."));
-        panel.add(new itemPanel( "[System]", "Dive right in and pick up what you left off.", "Just now."));
-        panel.add(new itemPanel( "[System]", "Enjoy your time on Class Synch!", "Just now."));
+        panel.add(new item("[System]", "Welcome to Class Synch!", "Just now."));
+        panel.add(new item( "[System]", "Dive right in and pick up what you left off.", "Just now."));
+        panel.add(new item( "[System]", "Enjoy your time on Class Synch!", "Just now."));
     }
 
     @Override
@@ -114,11 +120,8 @@ public class notifPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(panelNotifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(showAllNotifs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panelNotifLayout.createSequentialGroup()
-                        .addGroup(panelNotifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(notifTxt)
-                            .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                    .addComponent(notifTxt)
+                    .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         panelNotifLayout.setVerticalGroup(
             panelNotifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,7 +141,7 @@ public class notifPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelNotif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 10, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,7 +163,7 @@ public class notifPanel extends javax.swing.JPanel {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new notifFrame().setVisible(true);
-//                new notifPanel().setVisible(true);
+//                new notif().setVisible(true);
             }
         });
     }
